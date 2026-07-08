@@ -35,6 +35,24 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Checkout One-DSA
+        uses: actions/checkout@v4
+        with:
+          repository: pigchip/one-dsa
+          ref: main
+          path: one-dsa-src
+
+      - name: Build One-DSA (served at /one-dsa)
+        run: |
+          cd one-dsa-src
+          npm ci
+          npm run build
+
+      - name: Nest One-DSA under /one-dsa
+        run: |
+          mkdir -p dist/one-dsa
+          cp -r one-dsa-src/dist/. dist/one-dsa/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
