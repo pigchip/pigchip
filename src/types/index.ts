@@ -15,7 +15,6 @@ export interface Profile {
   name: string
   company: string
   tagline: string
-  location: string
   contacts: ContactLink[]
 }
 

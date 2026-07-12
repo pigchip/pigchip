@@ -8,7 +8,6 @@ export const profile: Profile = {
   company: 'Microsoft',
   tagline:
     'Software Engineer building fast, maintainable web experiences with React, TypeScript and C#. Computer Systems Engineer and AI enthusiast.',
-  location: 'Mexico City, Mexico',
   contacts: [
     {
       kind: 'mail',
