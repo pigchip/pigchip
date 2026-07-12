@@ -45,7 +45,7 @@
 <div align="center">
 
 <a href="https://readme-typing-svg.demolab.com">
-  <img src="https://readme-typing-svg.demolab.com?font=Lora&duration=2000&pause=200&color=1AFF04&background=000000&center=true&vCenter=true&width=720&lines=Software+Engineer+%40+Microsoft;Computer+Systems+Engineer;React+%C2%B7+TypeScript+%C2%B7+C%23+%2F+.NET;Machine+Learning+%26+AI+enthusiast" alt="Software Engineer @ Microsoft — React, TypeScript, C#/.NET, Machine Learning" />
+  <img width="100%" src="https://readme-typing-svg.demolab.com?font=Lora&duration=2000&pause=200&color=1AFF04&background=000000&center=true&vCenter=true&width=720&lines=Software+Engineer+%40+Microsoft;Computer+Systems+Engineer;React+%C2%B7+TypeScript+%C2%B7+C%23+%2F+.NET;Machine+Learning+%26+AI+enthusiast" alt="Software Engineer @ Microsoft — React, TypeScript, C#/.NET, Machine Learning" />
 </a>
 
 </div>
