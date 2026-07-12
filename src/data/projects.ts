@@ -2,6 +2,7 @@ import type { Project } from '@/types'
 import aiNowLogo from '@/assets/projects/ainow.png'
 import notaLogo from '@/assets/projects/nota.png'
 import mtsLogo from '@/assets/projects/mts.png'
+import mawiLogo from '@/assets/projects/mawi.png'
 import oneDsaLogo from '@/assets/projects/one-dsa.svg'
 import microsoftLogo from '@/assets/logos/microsoft.svg'
 import ipnLogo from '@/assets/logos/ipn.png'
@@ -34,7 +35,7 @@ export const projects: Project[] = [
     stack: ['React 19', 'TypeScript', 'React Router', 'Shiki', 'Tailwind'],
     points: [
       'Built a custom SM-2 spaced-repetition scheduler with a 4-button grading flow, persisting per-card review state in local storage.',
-      'Designed four drill types — recognition, fill-in-the-blank, code, and syntax — with pattern-scoped and mixed-review study sessions.',
+      'Designed four drill types - recognition, fill-in-the-blank, code, and syntax - with pattern-scoped and mixed-review study sessions.',
       'Shipped as a fast client-side React 19 + Vite SPA with Shiki-powered syntax highlighting for reading-optimized code.',
     ],
     url: 'https://aguzmancruz.com/one-dsa/',
@@ -113,6 +114,24 @@ export const projects: Project[] = [
     hasMedia: true,
   },
   {
+    title: 'Mawí Ecológica',
+    period: 'July 2024',
+    description:
+      'Shopify e-commerce storefront for an eco-friendly, sustainable products brand - a fully configured online store with a custom-themed catalog, secure checkout, and a mobile-first shopping experience.',
+    icon: 'Sparkles',
+    logo: mawiLogo,
+    logoChip: true,
+    scope: 'personal',
+    stack: ['Shopify', 'Liquid', 'E-commerce', 'HTML/CSS'],
+    points: [
+      'Set up and configured the full Shopify store, from products and collections to shipping, taxes and checkout.',
+      'Customized the storefront theme with Liquid - tailoring sections, branding and layout to the brand identity.',
+      'Built the product catalog and a streamlined checkout flow to support in-person and online sales.',
+    ],
+    url: 'https://mawiecologica.com',
+    hasMedia: true,
+  },
+  {
     title: 'AI-NOW SaaS Web Application',
     period: 'January 2024',
     description:
@@ -127,6 +146,23 @@ export const projects: Project[] = [
       'Integrated ChatGPT and Replicate.ai APIs to enable dynamic, intelligent interactions.',
     ],
     repo: 'https://github.com/pigchip/AI-NOW',
+    hasMedia: true,
+  },
+  {
+    title: 'Toy Store E-commerce',
+    period: 'January 2024',
+    description:
+      'Full-stack online toy store with product browsing, user authentication and a shopping cart, built as a single-page Angular app backed by a Supabase database and deployed on Render.',
+    icon: 'ToyBrick',
+    scope: 'personal',
+    stack: ['Angular', 'TypeScript', 'Supabase', 'Render'],
+    points: [
+      'Built a responsive Angular single-page application with a product catalog, cart and user login flow.',
+      'Used Supabase for the database, authentication and data access powering the storefront.',
+      'Deployed the app on Render for continuous hosting with a public live URL.',
+    ],
+    url: 'https://zesty-chaja-7e767e.netlify.app/',
+    links: [{ label: 'GitHub', href: 'https://github.com/pigchip/ecommerce-app' }],
     hasMedia: true,
   },
 ]

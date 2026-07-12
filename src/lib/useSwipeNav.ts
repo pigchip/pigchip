@@ -3,7 +3,7 @@ import { SECTIONS } from '@/lib/sections'
 import { currentSectionIndex, scrollToId } from '@/lib/scroll'
 
 const MIN_DISTANCE = 60 // px a horizontal swipe must travel to register
-const MAX_DURATION = 600 // ms — longer drags are treated as scrolling, not swipes
+const MAX_DURATION = 600 // ms - longer drags are treated as scrolling, not swipes
 
 /**
  * Phone-only left/right swipe navigation between sections. A dominantly

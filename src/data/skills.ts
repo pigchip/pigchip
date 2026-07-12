@@ -1,5 +1,6 @@
 import type { SkillCategory } from '@/types'
 import typescriptLogo from '@/assets/brands/typescript.svg'
+import javascriptLogo from '@/assets/brands/javascript.svg'
 import cplusplusLogo from '@/assets/brands/cplusplus.svg'
 import csharpLogo from '@/assets/brands/csharp.svg'
 import pythonLogo from '@/assets/brands/python.svg'
@@ -11,6 +12,10 @@ import neo4jLogo from '@/assets/brands/neo4j.svg'
 import prismaLogo from '@/assets/brands/prisma.svg'
 import supabaseLogo from '@/assets/brands/supabase.svg'
 import reactLogo from '@/assets/brands/react.svg'
+import angularLogo from '@/assets/brands/angular.svg'
+import htmlLogo from '@/assets/brands/html5.svg'
+import cssLogo from '@/assets/brands/css.svg'
+import shopifyLogo from '@/assets/brands/shopify.svg'
 import nextjsLogo from '@/assets/brands/nextjs.svg'
 import electronLogo from '@/assets/brands/electron.svg'
 import tailwindcssLogo from '@/assets/brands/tailwindcss.svg'
@@ -49,6 +54,7 @@ export const skills: SkillCategory[] = [
     icon: 'Code2',
     items: [
       { label: 'TypeScript', logo: typescriptLogo },
+      { label: 'JavaScript', logo: javascriptLogo },
       { label: 'C++', logo: cplusplusLogo },
       { label: 'C#', logo: csharpLogo },
       { label: 'Python', logo: pythonLogo },
@@ -71,13 +77,18 @@ export const skills: SkillCategory[] = [
     accent: '#4ec2c7',
     icon: 'Layout',
     items: [
+      { label: 'HTML5', logo: htmlLogo },
+      { label: 'CSS', logo: cssLogo },
       { label: 'React', logo: reactLogo },
+      { label: 'Angular', logo: angularLogo },
       { label: 'Next.js', logo: nextjsLogo },
       { label: 'React Router', logo: reactRouterLogo },
       { label: 'Vite', logo: viteLogo },
       { label: 'Framer Motion', logo: framerMotionLogo },
       { label: 'Electron', logo: electronLogo },
       { label: 'Tailwind CSS', logo: tailwindcssLogo },
+      { label: 'Shopify', logo: shopifyLogo },
+      { label: 'Liquid', mono: 'Liquid' },
     ],
   },
   {

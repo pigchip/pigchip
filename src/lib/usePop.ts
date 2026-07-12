@@ -10,7 +10,7 @@ const navLine = (vh: number) =>
 /**
  * Drives a "pop" reveal tied to the element's position in the viewport. The
  * element is shown once it has entered from the bottom and stays shown until
- * *any* part of it crosses the nav line at the top — i.e. it pops out the
+ * *any* part of it crosses the nav line at the top - i.e. it pops out the
  * instant its top edge reaches {@link NAV_LINE}. Symmetric: scrolling back up
  * re-reveals it once its top clears the line again. Returns a ref plus the
  * variant label to feed a motion element's `animate` prop (pair with

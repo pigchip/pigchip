@@ -25,7 +25,7 @@ export function CopyButton({ value, label, className = '' }: CopyButtonProps) {
       setCopied(true)
       setTimeout(() => setCopied(false), 1500)
     } catch {
-      /* clipboard unavailable — no-op */
+      /* clipboard unavailable - no-op */
     }
   }
 

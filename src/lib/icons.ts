@@ -24,6 +24,7 @@ import {
   MessageSquare,
   BrainCircuit,
   ChevronDown,
+  ToyBrick,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -51,6 +52,7 @@ export const icons: Record<string, LucideIcon> = {
   Bus,
   MessageSquare,
   BrainCircuit,
+  ToyBrick,
 }
 
 export {
