@@ -32,7 +32,7 @@
 <p align="center"><b>Work I do:</b></p>
 
 <table width="100%">
-<tr><th align="left">Project</th><th align="left">Stack</th><th align="left">Links</th></tr>
+<tr><th align="left" width="560">Project</th><th align="left" width="300">Stack</th><th align="left" width="160">Links</th></tr>
 <tr><td><b>LLM Fine-Tuning &amp; Comparison</b> <i>(WIP)</i></td><td>LLaMA-Factory · PyTorch · ONNX</td><td>—</td></tr>
 <tr><td><b>One-DSA</b> — DSA mastery with spaced repetition</td><td>React 19 · TypeScript · Shiki</td><td><a href="https://aguzmancruz.com/one-dsa/">Live</a> · <a href="https://github.com/pigchip/one-dsa">GitHub</a></td></tr>
 <tr><td><b>DevX Workflows</b> — Copilot SDK desktop app, on-device RAG</td><td>React 19 · Electron · LanceDB</td><td><a href="https://github.com/gim-home/devx-workflows">GitHub</a></td></tr>
