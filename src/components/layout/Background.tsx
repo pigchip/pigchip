@@ -17,38 +17,38 @@ export function Background() {
           animate="on"
           type="waterPlane"
           shader="defaults"
-          grain="off"
-          grainBlending={0}
-          color1="#2563ff"
-          color2="#0a2a7a"
-          color3="#03081f"
-          brightness={1.45}
+          grain="on"
+          grainBlending={0.15}
+          color1="#0c2180"
+          color2="#6583ca"
+          color3="#212121"
+          brightness={1}
           envPreset="city"
           lightType="3d"
           reflection={0.1}
           cAzimuthAngle={180}
-          cDistance={3.6}
-          cPolarAngle={90}
-          cameraZoom={1}
+          cDistance={2.8}
+          cPolarAngle={80}
+          cameraZoom={9.1}
           positionX={0}
           positionY={0}
           positionZ={0}
-          rotationX={0}
+          rotationX={50}
           rotationY={0}
-          rotationZ={0}
+          rotationZ={-60}
           range="disabled"
           rangeStart={0}
           rangeEnd={40}
-          uDensity={1.2}
+          uDensity={1.5}
           uFrequency={0}
-          uStrength={3.4}
-          uSpeed={0.2}
-          uTime={0}
+          uStrength={1.5}
+          uSpeed={0.3}
+          uTime={8}
           uAmplitude={0}
         />
       </ShaderGradientCanvas>
       {/* Deep navy/black vignette, lighter center to let the bright blue glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_50%_30%,rgba(2,6,23,0.18)_0%,rgba(2,6,23,0.40)_55%,rgba(0,0,0,0.62)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_50%_30%,rgba(2,6,23,0.12)_0%,rgba(2,6,23,0.30)_55%,rgba(0,0,0,0.48)_100%)]" />
     </div>
   )
 }

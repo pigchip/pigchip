@@ -32,6 +32,7 @@ export function Typewriter({
   cursorClassName?: string
 }) {
   const [count, setCount] = useState(enabled ? 0 : text.length)
+  const [started, setStarted] = useState(!enabled)
   const done = count >= text.length
 
   useEffect(() => {
@@ -39,6 +40,7 @@ export function Typewriter({
     let i = 0
     let interval: ReturnType<typeof setInterval> | undefined
     const startTimer = setTimeout(() => {
+      setStarted(true)
       interval = setInterval(() => {
         i += 1
         setCount(i)
@@ -51,7 +53,8 @@ export function Typewriter({
     }
   }, [text, enabled, speed, startDelay])
 
-  const showCursor = cursor === 'always' || (cursor === 'typing' && !done)
+  const showCursor =
+    started && (cursor === 'always' || (cursor === 'typing' && !done))
 
   return (
     <span className={className}>

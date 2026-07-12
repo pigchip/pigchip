@@ -5,8 +5,10 @@ import { profile } from '@/data/profile'
 import { BrandIcon } from '@/components/common/BrandIcon'
 import { Typewriter } from '@/components/common/Typewriter'
 import { ButtonLink } from '@/components/ui/Button'
-import { Mail, Phone, Globe, MapPin } from '@/lib/icons'
-import { fadeUp, stagger } from '@/lib/motion'
+import { onAnchorClick } from '@/lib/scroll'
+import { Mail, Phone, Globe } from '@/lib/icons'
+import { fadeUp, stagger, pop, popGroup } from '@/lib/motion'
+import { useCenterPop } from '@/lib/usePop'
 
 export function ContactIcon({ kind, size = 16 }: { kind: ContactKind; size?: number }) {
   if (kind === 'mail') return <Mail size={size} />
@@ -18,52 +20,73 @@ export function ContactIcon({ kind, size = 16 }: { kind: ContactKind; size?: num
 // Persists across slide remounts so the typewriter only runs the first time.
 let heroHasTyped = false
 
-export function Hero({ onNavigate }: { onNavigate?: (id: string) => void }) {
+export function Hero() {
   const [typing] = useState(!heroHasTyped)
-  const [nameDone, setNameDone] = useState(!typing)
   useEffect(() => {
     heroHasTyped = true
   }, [])
 
   const roleText = `SOFTWARE ENGINEER L60 @ ${profile.company.toUpperCase()}`
+  const nameParts = profile.name.split(' ')
+  const heroName =
+    nameParts.length >= 4
+      ? `${nameParts.slice(0, 2).join('\u00A0')} ${nameParts.slice(2).join('\u00A0')}`
+      : profile.name
+
+  // One continuous typewriter flows name -> role -> tagline via cumulative delays.
   const nameSpeed = 28
   const roleSpeed = 24
+  const taglineSpeed = 14
   const nameStart = 200
-  const nameEnd = nameStart + profile.name.length * nameSpeed
+  const nameEnd = nameStart + heroName.length * nameSpeed
   const roleDelay = typing ? nameEnd : 0
+  const roleEnd = nameEnd + roleText.length * roleSpeed
+  const taglineDelay = typing ? roleEnd : 0
+  const taglineEnd = roleEnd + profile.tagline.length * taglineSpeed
 
+  // Reveal buttons + contact tags with a curtain wipe once typing completes.
+  const [revealed, setRevealed] = useState(!typing)
   useEffect(() => {
     if (!typing) return
-    const t = setTimeout(() => setNameDone(true), nameEnd)
+    const t = setTimeout(() => setRevealed(true), taglineEnd + 150)
     return () => clearTimeout(t)
-  }, [typing, nameEnd])
+  }, [typing, taglineEnd])
+
+  // After the initial reveal, each element pops out at the nav line on scroll
+  // (and pops back in when scrolled into view again), matching the sections.
+  const { ref: nameRef, animate: nameAnim } = useCenterPop<HTMLHeadingElement>()
+  const { ref: roleRef, animate: roleAnim } = useCenterPop<HTMLParagraphElement>()
+  const { ref: tagRef, animate: tagAnim } = useCenterPop<HTMLParagraphElement>()
+  const { ref: btnsRef, shown: btnsShown } = useCenterPop<HTMLDivElement>()
+  const { ref: tagsRef, shown: tagsShown } = useCenterPop<HTMLDivElement>()
 
   return (
-    <section id="hero" className="relative mx-auto flex h-full w-full max-w-6xl flex-col justify-center">
-      <motion.div variants={stagger} initial="hidden" animate="show">
-        <motion.span
-          variants={fadeUp}
-          className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/8 px-3 py-1 text-xs font-semibold text-white/80"
-        >
-          <MapPin size={13} className="text-[var(--color-ember)]" />
-          {profile.location}
-        </motion.span>
-
+    <section
+      id="hero"
+      className="flex min-h-svh w-full flex-col justify-center px-6 pb-20 pt-24 sm:px-10 sm:pb-24 sm:pt-28"
+    >
+      <motion.div variants={stagger} initial="hidden" animate="show" className="mx-auto w-full max-w-6xl">
         <motion.h1
+          ref={nameRef}
           variants={fadeUp}
-          className="mt-5 text-4xl font-extrabold leading-[1.05] tracking-tight text-white text-legible sm:text-6xl"
+          initial="hidden"
+          animate={nameAnim}
+          className="font-serif text-5xl font-bold leading-[1.05] tracking-tight text-white text-legible sm:text-6xl xl:text-7xl"
         >
           <Typewriter
-            text={profile.name}
+            text={heroName}
             enabled={typing}
             speed={nameSpeed}
             startDelay={nameStart}
-            cursor={nameDone ? 'none' : 'always'}
+            cursor="typing"
           />
         </motion.h1>
 
         <motion.p
+          ref={roleRef}
           variants={fadeUp}
+          initial="hidden"
+          animate={roleAnim}
           className="mt-3 text-xl font-semibold sm:text-2xl"
         >
           <Typewriter
@@ -71,44 +94,73 @@ export function Hero({ onNavigate }: { onNavigate?: (id: string) => void }) {
             enabled={typing}
             speed={roleSpeed}
             startDelay={roleDelay}
-            cursor="always"
+            cursor="typing"
             textClassName="text-gradient-animated"
             cursorClassName="cursor-gradient"
           />
         </motion.p>
 
         <motion.p
+          ref={tagRef}
           variants={fadeUp}
-          className="mt-5 max-w-2xl text-base leading-relaxed text-white text-legible-strong sm:text-lg"
+          initial="hidden"
+          animate={tagAnim}
+          className="mt-5 max-w-5xl text-justify text-base leading-relaxed text-white text-legible-strong sm:text-lg"
         >
-          {profile.tagline}
+          <Typewriter
+            text={profile.tagline}
+            enabled={typing}
+            speed={taglineSpeed}
+            startDelay={taglineDelay}
+            cursor={typing ? 'always' : 'none'}
+          />
         </motion.p>
 
-        <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
-          <ButtonLink href="#projects" onClick={(e) => { e.preventDefault(); onNavigate?.('projects') }}>
-            View projects
-          </ButtonLink>
-          <ButtonLink
-            href="#contact"
-            variant="ghost"
-            onClick={(e) => { e.preventDefault(); onNavigate?.('contact') }}
-          >
-            Get in touch
-          </ButtonLink>
+        <motion.div
+          ref={btnsRef}
+          variants={popGroup}
+          initial="hidden"
+          animate={revealed && btnsShown ? 'show' : 'hidden'}
+          className="mt-8 flex flex-wrap gap-3"
+        >
+          <motion.div variants={pop}>
+            <ButtonLink href="#projects" onClick={(e) => onAnchorClick(e, 'projects')}>
+              View projects
+            </ButtonLink>
+          </motion.div>
+          <motion.div variants={pop}>
+            <ButtonLink href="#contact" variant="ghost" onClick={(e) => onAnchorClick(e, 'contact')}>
+              Get in touch
+            </ButtonLink>
+          </motion.div>
         </motion.div>
 
-        <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-x-5 gap-y-2">
-          {profile.contacts.map((c) => (
-            <a
-              key={c.href}
-              href={c.href}
-              target={c.kind === 'mail' || c.kind === 'phone' ? undefined : '_blank'}
-              rel="noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm text-white/90 text-legible-strong transition-colors hover:text-white"
-            >
-              <ContactIcon kind={c.kind} />
-              {c.handle}
-            </a>
+        <motion.div
+          ref={tagsRef}
+          variants={popGroup}
+          initial="hidden"
+          animate={revealed && tagsShown ? 'show' : 'hidden'}
+          className="mt-8 flex flex-col gap-2"
+        >
+          {[
+            profile.contacts.filter((c) => c.kind === 'mail' || c.kind === 'phone'),
+            profile.contacts.filter((c) => c.kind !== 'mail' && c.kind !== 'phone'),
+          ].map((row, i) => (
+            <div key={i} className="flex flex-wrap gap-2">
+              {row.map((c) => (
+                <motion.a
+                  variants={pop}
+                  key={c.href}
+                  href={c.href}
+                  target={c.kind === 'mail' || c.kind === 'phone' ? undefined : '_blank'}
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-white/15 bg-white/8 px-3 py-1.5 text-sm text-white/90 text-legible-strong transition-colors hover:border-white/25 hover:bg-white/12 hover:text-white"
+                >
+                  <ContactIcon kind={c.kind} />
+                  {c.handle}
+                </motion.a>
+              ))}
+            </div>
           ))}
         </motion.div>
       </motion.div>

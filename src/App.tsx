@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { Slideshow } from '@/components/layout/Slideshow'
+import { Page } from '@/components/layout/Page'
 
 // Heavy (three.js): load after first paint to keep the initial bundle small.
 const Background = lazy(() =>
@@ -12,7 +12,7 @@ function App() {
       <Suspense fallback={null}>
         <Background />
       </Suspense>
-      <Slideshow />
+      <Page />
     </>
   )
 }

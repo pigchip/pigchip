@@ -1,60 +1,60 @@
-import { motion } from 'motion/react'
-import { Section } from '@/components/layout/Section'
+﻿import { Section } from '@/components/layout/Section'
+import { Timeline, TimelineItem } from '@/components/common/Timeline'
+import { LogoTile } from '@/components/common/LogoTile'
 import { education } from '@/data/education'
 import { GraduationCap } from '@/lib/icons'
-import { fadeUp } from '@/lib/motion'
 
 export function About() {
   return (
     <Section id="about" title="About me" icon="Sparkles" eyebrow="Who I am">
-      <motion.div
-        variants={fadeUp}
-        className="glass grid gap-x-10 gap-y-6 rounded-2xl p-6 md:grid-cols-2 md:p-8"
-      >
-        <div className="flex flex-col justify-center gap-6">
-          <p className="text-[1.05rem] leading-relaxed text-white/80">
-            I'm a Software Engineer at Microsoft focused on building fast,
-            maintainable web experiences with React, TypeScript and C#. I enjoy
-            turning ambiguous problems into well-specified deliverables.
-          </p>
+      <div className="mx-auto w-full max-w-2xl">
+        <Timeline>
+          {/* Mission statement leads the timeline as its first node. */}
+          <TimelineItem accent="#4890d8" date="My goal">
+            <blockquote className="glass rounded-2xl border-l-4 border-[var(--color-ember)] p-6">
+              <p className="text-justify text-[1.05rem] font-medium leading-relaxed text-white/90">
+                “I want to contribute to a future where cutting-edge technology is
+                widely accessible, democratized, and promotes the socioeconomic
+                growth of marginalized groups.”
+              </p>
+            </blockquote>
+          </TimelineItem>
 
-          <blockquote className="relative rounded-xl border-l-4 border-[var(--color-ember)] bg-white/[0.04] p-5">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-ember)]">
-              My goal
-            </span>
-            <p className="mt-2 text-[1.05rem] font-medium italic leading-relaxed text-white/90">
-              “I want to contribute to a future where cutting-edge technology is
-              widely accessible, democratized, and promotes the socioeconomic
-              growth of marginalized groups.”
-            </p>
-          </blockquote>
-        </div>
-
-        <div className="flex flex-col justify-center gap-4">
-          <div className="flex items-center gap-2 text-sm font-semibold text-white">
-            <GraduationCap size={18} className="text-[var(--color-ember)]" />
-            Education
-          </div>
-          <ul className="flex flex-col gap-5">
-            {education.map((e) => (
-              <li key={e.school} className="border-l-2 border-[var(--color-ember)]/50 pl-4">
-                <div className="flex flex-wrap items-baseline justify-between gap-x-3">
-                  <span className="text-[0.95rem] font-semibold text-white">{e.school}</span>
-                  <span className="text-xs font-medium text-white/55">{e.period}</span>
+          {education.map((e) => (
+            <TimelineItem key={e.school} accent="#4890d8" date={e.period}>
+              <article className="glass flex h-full flex-col gap-4 rounded-2xl p-6">
+                <div className="flex flex-wrap items-start justify-between gap-2">
+                  <div className="flex items-center gap-3">
+                    <LogoTile
+                      logo={e.logo}
+                      chip={e.logoChip}
+                      Icon={GraduationCap}
+                      alt={`${e.school} logo`}
+                    />
+                    <div>
+                      <h4 className="font-serif text-lg font-bold leading-tight text-white">
+                        {e.degree}
+                      </h4>
+                      <p className="text-sm text-white/70">{e.school}</p>
+                    </div>
+                  </div>
                 </div>
-                <p className="text-[0.85rem] text-white/70">{e.degree}</p>
-                <ul className="mt-1.5 flex flex-col gap-1">
+
+                <ul className="flex flex-col gap-2">
                   {e.points.map((p) => (
-                    <li key={p} className="text-[0.82rem] text-white/55">
-                      • {p}
+                    <li
+                      key={p}
+                      className="relative pl-4 text-justify text-[0.88rem] leading-relaxed text-white/65 before:absolute before:left-0 before:top-[0.6rem] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[var(--color-ember)]"
+                    >
+                      {p}
                     </li>
                   ))}
                 </ul>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </motion.div>
+              </article>
+            </TimelineItem>
+          ))}
+        </Timeline>
+      </div>
     </Section>
   )
 }
