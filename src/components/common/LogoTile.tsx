@@ -25,8 +25,8 @@ export function LogoTile({ logo, invert, chip, Icon, alt }: LogoTileProps) {
       <span
         className={
           chip
-            ? 'flex h-11 w-11 shrink-0 items-center justify-center rounded-[0.6rem] bg-white p-1.5 ring-1 ring-black/5'
-            : 'flex h-11 w-11 shrink-0 items-center justify-center'
+            ? 'flex h-9 w-9 shrink-0 items-center justify-center rounded-[0.6rem] bg-white p-1 ring-1 ring-black/5 sm:h-11 sm:w-11 sm:p-1.5'
+            : 'flex h-9 w-9 shrink-0 items-center justify-center sm:h-11 sm:w-11'
         }
       >
         <img
@@ -40,7 +40,7 @@ export function LogoTile({ logo, invert, chip, Icon, alt }: LogoTileProps) {
   }
   return (
     <span
-      className="icon-tile h-11 w-11 shrink-0 text-[var(--color-ember)]"
+      className="icon-tile h-9 w-9 shrink-0 text-[var(--color-ember)] sm:h-11 sm:w-11"
       style={{ ['--accent' as string]: '#4890d8' }}
     >
       {Icon && <Icon size={20} />}

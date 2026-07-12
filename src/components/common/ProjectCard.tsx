@@ -19,7 +19,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   const body = (
     <>
-      <div className="flex items-start gap-3">
+      <div className="flex items-start gap-2.5 sm:gap-3">
         <LogoTile
           logo={project.logo}
           invert={project.logoInvert}
@@ -27,18 +27,18 @@ export function ProjectCard({ project }: ProjectCardProps) {
           Icon={Logo}
           alt={`${project.title} logo`}
         />
-        <div className="flex flex-col">
-          <h3 className="font-serif text-lg font-bold leading-tight text-white">
+        <div className="flex min-w-0 flex-col">
+          <h3 className="font-serif text-base font-bold leading-tight text-white sm:text-lg">
             {project.title}
           </h3>
           {project.stack && (
-            <span className="mt-0.5 text-xs font-medium text-[var(--color-ember)]">
+            <span className="mt-0.5 hidden text-xs font-medium text-[var(--color-ember)] sm:block">
               {project.stack.join(' · ')}
             </span>
           )}
         </div>
         {(project.scope || clickable) && (
-          <div className="ml-auto flex shrink-0 items-center gap-2">
+          <div className="ml-auto flex shrink-0 items-center gap-1.5 sm:gap-2">
             {project.scope && (
               <span
                 className="rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ring-1"
@@ -70,9 +70,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
         )}
       </div>
 
-      <p className="text-justify text-[0.95rem] leading-relaxed text-white/75">
+      <p className="text-left text-sm leading-relaxed text-white/75 sm:text-justify sm:text-[0.95rem]">
         {project.description}
       </p>
+
+      {project.stack && (
+        <span className="block text-xs font-medium text-[var(--color-ember)] sm:hidden">
+          {project.stack.join(' · ')}
+        </span>
+      )}
 
       {links.length > 0 && (
         <div className="mt-auto flex flex-wrap gap-2 pt-1">
@@ -93,7 +99,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
     </>
   )
 
-  const className = 'glass group flex h-full flex-col gap-3 rounded-2xl p-6'
+  const className = 'glass group flex h-full flex-col gap-3 rounded-2xl p-3 sm:p-6'
 
   if (singleLink) {
     return (

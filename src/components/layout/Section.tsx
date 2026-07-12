@@ -35,7 +35,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`w-full px-6 py-20 sm:px-10 sm:py-24 ${sectionClassName}`}
+      className={`w-full px-5 pb-14 pt-20 sm:px-10 sm:py-24 ${sectionClassName}`}
     >
       <div className={`mx-auto flex w-full max-w-6xl flex-col ${className}`}>
         <motion.header
@@ -43,21 +43,21 @@ export function Section({
           variants={staggerItem}
           initial="hidden"
           animate={headerAnim}
-          className="mb-8"
+          className="mb-6 sm:mb-8"
         >
           <div className="flex flex-col gap-2.5">
             {eyebrow && (
               <span className="flex items-center gap-2.5">
                 <span className="h-px w-8 bg-gradient-to-r from-[var(--color-flame)] to-transparent" />
-                <span className="text-gradient-animated text-xs font-semibold uppercase tracking-[0.22em]">
+                <span className="text-gradient-animated text-[0.7rem] font-semibold uppercase tracking-[0.22em] sm:text-xs">
                   {eyebrow}
                 </span>
               </span>
             )}
-            <h2 className="flex items-center gap-3.5 text-3xl font-extrabold tracking-tight sm:text-4xl">
+            <h2 className="flex items-center gap-2.5 text-xl font-extrabold tracking-tight sm:gap-3.5 sm:text-4xl">
               {Icon && (
                 <span
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border backdrop-blur-xl backdrop-saturate-150 sm:h-12 sm:w-12"
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border backdrop-blur-xl backdrop-saturate-150 sm:h-12 sm:w-12"
                   style={{
                     background:
                       'linear-gradient(135deg, rgba(72,144,216,0.32), rgba(45,103,147,0.24))',

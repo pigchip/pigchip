@@ -36,10 +36,10 @@ function ContactCard({ contact: c }: { contact: ContactLink }) {
         href={c.href}
         target={c.kind === 'mail' || c.kind === 'phone' ? undefined : '_blank'}
         rel="noreferrer"
-        className="flex h-full items-center gap-4 p-6 pr-14"
+        className="flex h-full items-center gap-2.5 p-2.5 pr-10 sm:gap-4 sm:p-6 sm:pr-14"
       >
         {logo ? (
-          <span className="flex h-14 w-14 shrink-0 items-center justify-center">
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center sm:h-14 sm:w-14">
             <img
               src={logo}
               alt={`${c.label} logo`}
@@ -49,15 +49,15 @@ function ContactCard({ contact: c }: { contact: ContactLink }) {
           </span>
         ) : (
           <span
-            className="icon-tile h-14 w-14 shrink-0 text-white"
+            className="icon-tile h-8 w-8 shrink-0 text-white sm:h-14 sm:w-14"
             style={{ ['--accent' as string]: '#4890d8' }}
           >
-            <ContactIcon kind={c.kind} size={26} />
+            <ContactIcon kind={c.kind} size={20} />
           </span>
         )}
-        <span className="flex min-w-0 flex-col gap-1">
-          <span className="flex items-center gap-2">
-            <span className="text-xs font-semibold uppercase tracking-wide text-white/50">
+        <span className="flex min-w-0 flex-col gap-0.5">
+          <span className="flex items-center gap-1.5">
+            <span className="text-[0.65rem] font-semibold uppercase tracking-wide text-white/50 sm:text-xs">
               {c.label}
             </span>
             {c.scope && (
@@ -81,7 +81,7 @@ function ContactCard({ contact: c }: { contact: ContactLink }) {
               </span>
             )}
           </span>
-          <span className="truncate text-lg font-semibold text-white">{c.handle}</span>
+          <span className="truncate text-sm font-semibold text-white sm:text-lg">{c.handle}</span>
         </span>
       </a>
     </motion.div>
@@ -95,9 +95,9 @@ export function Contact() {
       title="Get in touch"
       icon="Mail"
       eyebrow="Let's connect"
-      sectionClassName="flex min-h-svh flex-col justify-center"
+      sectionClassName="flex min-h-svh flex-col justify-start sm:justify-center"
     >
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
         {profile.contacts.map((c) => (
           <ContactCard key={c.href} contact={c} />
         ))}

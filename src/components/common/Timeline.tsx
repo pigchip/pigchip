@@ -54,7 +54,7 @@ export function TimelineItem({ children, accent, date }: TimelineItemProps) {
       variants={staggerItem}
       initial="hidden"
       animate={animate}
-      className="group/timeline relative pl-12"
+      className="group/timeline relative pl-10 sm:pl-12"
     >
       {/* Lit rail segment: overlays the dim base rail and glows accent while
           the entry is in focus. Starts just below the node (so neither the

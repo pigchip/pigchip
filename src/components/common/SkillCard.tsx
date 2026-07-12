@@ -29,31 +29,32 @@ export function SkillCard({ category }: SkillCardProps) {
       initial="hidden"
       animate={animate}
       whileHover={hoverLift}
-      className="glass-accent flex h-full flex-col gap-4 rounded-2xl p-6"
+      className="glass-accent flex h-full flex-col gap-3 rounded-2xl p-3 sm:gap-4 sm:p-6"
       style={{ ['--accent' as string]: category.accent }}
     >
       <div className="flex items-center gap-2.5">
         {HeaderIcon && (
           <HeaderIcon
-            size={20}
+            size={18}
             style={{ color: category.accent }}
             strokeWidth={2.25}
+            className="shrink-0 sm:h-5 sm:w-5"
           />
         )}
-        <h3 className="font-serif text-lg font-semibold text-white">{category.title}</h3>
+        <h3 className="font-serif text-base font-semibold text-white sm:text-lg">{category.title}</h3>
       </div>
 
       <div
-        className="grid flex-1 content-center justify-items-center gap-3"
+        className="grid flex-1 content-center justify-items-center gap-1.5 sm:gap-3"
         style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}
       >
         {category.items.map((item) => (
           <div
             key={item.label}
-            className="flex w-16 flex-col items-center gap-1.5"
+            className="flex w-12 flex-col items-center gap-1 sm:w-16 sm:gap-1.5"
           >
             {item.logo ? (
-              <span className="flex h-12 w-12 items-center justify-center">
+              <span className="flex h-8 w-8 items-center justify-center sm:h-12 sm:w-12">
                 <img
                   src={item.logo}
                   alt={`${item.label} logo`}
@@ -63,18 +64,18 @@ export function SkillCard({ category }: SkillCardProps) {
               </span>
             ) : (
               <span
-                className="icon-tile h-12 w-12 text-white"
+                className="icon-tile h-8 w-8 text-white sm:h-12 sm:w-12"
                 style={{ ['--accent' as string]: category.accent }}
               >
                 <span
-                  className="text-sm font-bold text-white"
+                  className="text-xs font-bold text-white sm:text-sm"
                   aria-hidden="true"
                 >
                   {item.mono}
                 </span>
               </span>
             )}
-            <span className="text-center text-xs leading-tight text-white/80">
+            <span className="text-center text-[0.62rem] leading-tight text-white/80 sm:text-xs">
               {item.label}
             </span>
           </div>

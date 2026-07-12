@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 
-/** Nav bar bottom edge, in px: the line above which elements are hidden. */
-const NAV_LINE = 88
+/** Top line, in px, above which elements are hidden. On phones this mirrors the
+ *  bottom reveal band (5% of the viewport) so the top and bottom disappearing
+ *  areas are symmetric; on desktop it sits at the nav pill's bottom edge. */
+const NAV_LINE_DESKTOP = 88
+const navLine = (vh: number) =>
+  window.innerWidth < 640 ? vh * 0.05 : NAV_LINE_DESKTOP
 
 /**
  * Drives a "pop" reveal tied to the element's position in the viewport. The
@@ -28,7 +32,7 @@ export function useCenterPop<T extends Element = HTMLElement>() {
       // Entered from the bottom (top edge within ~95% of the viewport height)…
       const entered = rect.top <= vh * 0.95
       // …but no part has crossed the nav line yet (top edge still below it).
-      const clearOfNav = rect.top > NAV_LINE
+      const clearOfNav = rect.top > navLine(vh)
       setShown(entered && clearOfNav)
     }
 

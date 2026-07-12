@@ -50,7 +50,7 @@ export function Nav() {
 
   return (
     <nav
-      className="glass fixed left-1/2 top-4 z-[60] flex -translate-x-1/2 items-center gap-0.5 rounded-full p-1 backdrop-blur-xl backdrop-saturate-150 sm:top-6"
+      className="glass fixed left-1/2 top-3 z-[60] flex -translate-x-1/2 items-center gap-0.5 rounded-full p-0.5 backdrop-blur-xl backdrop-saturate-150 sm:top-6 sm:p-1"
       style={{
         background:
           'linear-gradient(135deg, rgba(72,144,216,0.32), rgba(45,103,147,0.24))',
@@ -65,7 +65,7 @@ export function Nav() {
             href={`#${s.id}`}
             onClick={(e) => onAnchorClick(e, s.id)}
             aria-current={isActive ? 'true' : undefined}
-            className={`relative rounded-full px-2.5 py-1 text-xs font-semibold transition-colors sm:px-3 sm:text-sm ${
+            className={`relative rounded-full px-2 py-1 text-[0.7rem] font-semibold transition-colors sm:px-3 sm:text-sm ${
               isActive ? 'text-white' : 'text-white/55 hover:text-white/90'
             }`}
           >
@@ -82,7 +82,7 @@ export function Nav() {
                   viewBox="0 0 512 512"
                   role="img"
                   aria-label="Home"
-                  className="h-[1.35rem] w-[1.35rem]"
+                  className="h-[1.05rem] w-[1.05rem] sm:h-[1.35rem] sm:w-[1.35rem]"
                 >
                   <rect width="512" height="512" rx="64" fill="#000000" />
                   <text

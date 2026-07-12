@@ -63,7 +63,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="flex min-h-svh w-full flex-col justify-center px-6 pb-20 pt-24 sm:px-10 sm:pb-24 sm:pt-28"
+      className="flex min-h-svh w-full flex-col justify-center px-5 pb-16 pt-20 sm:px-10 sm:pb-24 sm:pt-28"
     >
       <motion.div variants={stagger} initial="hidden" animate="show" className="mx-auto w-full max-w-6xl">
         <motion.h1
@@ -71,7 +71,7 @@ export function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate={nameAnim}
-          className="font-serif text-5xl font-bold leading-[1.05] tracking-tight text-white text-legible sm:text-6xl xl:text-7xl"
+          className="font-serif text-4xl font-bold leading-[1.05] tracking-tight text-white text-legible sm:text-6xl xl:text-7xl"
         >
           <Typewriter
             text={heroName}
@@ -87,7 +87,7 @@ export function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate={roleAnim}
-          className="mt-3 text-xl font-semibold sm:text-2xl"
+          className="mt-2 text-base font-semibold sm:mt-3 sm:text-2xl"
         >
           <Typewriter
             text={roleText}
@@ -105,7 +105,7 @@ export function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate={tagAnim}
-          className="mt-5 max-w-5xl text-justify text-base leading-relaxed text-white text-legible-strong sm:text-lg"
+          className="mt-4 max-w-5xl text-left text-sm leading-relaxed text-white text-legible-strong sm:mt-5 sm:text-justify sm:text-lg"
         >
           <Typewriter
             text={profile.tagline}
@@ -121,7 +121,7 @@ export function Hero() {
           variants={popGroup}
           initial="hidden"
           animate={revealed && btnsShown ? 'show' : 'hidden'}
-          className="mt-8 flex flex-wrap gap-3"
+          className="mt-6 flex flex-wrap gap-3 sm:mt-8"
         >
           <motion.div variants={pop}>
             <ButtonLink href="#projects" onClick={(e) => onAnchorClick(e, 'projects')}>
@@ -140,7 +140,7 @@ export function Hero() {
           variants={popGroup}
           initial="hidden"
           animate={revealed && tagsShown ? 'show' : 'hidden'}
-          className="mt-8 flex flex-col gap-2"
+          className="mt-6 flex flex-col gap-2 sm:mt-8"
         >
           {[
             profile.contacts.filter((c) => c.kind === 'mail' || c.kind === 'phone'),
@@ -154,7 +154,7 @@ export function Hero() {
                   href={c.href}
                   target={c.kind === 'mail' || c.kind === 'phone' ? undefined : '_blank'}
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-white/15 bg-white/8 px-3 py-1.5 text-sm text-white/90 text-legible-strong transition-colors hover:border-white/25 hover:bg-white/12 hover:text-white"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-white/15 bg-white/8 px-2.5 py-1 text-xs text-white/90 text-legible-strong transition-colors hover:border-white/25 hover:bg-white/12 hover:text-white sm:px-3 sm:py-1.5 sm:text-sm"
                 >
                   <ContactIcon kind={c.kind} />
                   {c.handle}

@@ -23,6 +23,7 @@ import {
   Bus,
   MessageSquare,
   BrainCircuit,
+  ChevronDown,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -62,5 +63,6 @@ export {
   Briefcase,
   FlaskConical,
   GraduationCap,
+  ChevronDown,
 }
 export type { LucideIcon }
