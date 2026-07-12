@@ -1,24 +1,20 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'motion/react'
-import { onAnchorClick } from '@/lib/scroll'
-
-/** Single source of truth for section identity, order, and nav labels. */
-const SECTIONS = [
-  { id: 'hero', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'contact', label: 'Contact' },
-] as const
+import { onAnchorClick, scrollToId } from '@/lib/scroll'
+import { SECTIONS } from '@/lib/sections'
 
 /**
  * Sticky, translucent section nav centered at the top. Links smooth-scroll to
  * their section (via CSS `scroll-behavior` + `scroll-padding-top`) and a sliding
  * pill marks the section currently in view, tracked with an IntersectionObserver.
+ *
+ * On phones the pill bar is also drag-follow: sliding a finger across it scrolls
+ * live to whichever pill is under the touch.
  */
 export function Nav() {
   const [active, setActive] = useState<string>(SECTIONS[0].id)
+  const navRef = useRef<HTMLElement>(null)
+  const dragId = useRef<string | null>(null)
 
   useEffect(() => {
     const els = SECTIONS.map((s) => document.getElementById(s.id)).filter(
@@ -48,9 +44,33 @@ export function Nav() {
     return () => observer.disconnect()
   }, [])
 
+  // Drag-follow: while a finger slides across the pill bar, scroll live to the
+  // section whose pill sits under the touch point.
+  const followTouch = (e: React.TouchEvent) => {
+    const t = e.touches[0]
+    if (!t) return
+    const target = document.elementFromPoint(t.clientX, t.clientY)
+    const pill = target?.closest<HTMLElement>('[data-nav-id]')
+    const id = pill?.dataset.navId
+    if (id && id !== dragId.current) {
+      dragId.current = id
+      setActive(id)
+      scrollToId(id)
+    }
+  }
+
   return (
     <nav
-      className="glass fixed left-1/2 top-3 z-[60] flex -translate-x-1/2 items-center gap-0.5 rounded-full p-0.5 backdrop-blur-xl backdrop-saturate-150 sm:top-6 sm:p-1"
+      ref={navRef}
+      onTouchStart={followTouch}
+      onTouchMove={followTouch}
+      onTouchEnd={() => {
+        dragId.current = null
+      }}
+      onTouchCancel={() => {
+        dragId.current = null
+      }}
+      className="glass fixed left-1/2 top-3 z-[60] flex -translate-x-1/2 touch-none select-none items-center gap-0.5 rounded-full p-0.5 backdrop-blur-xl backdrop-saturate-150 sm:top-6 sm:touch-auto sm:p-1"
       style={{
         background:
           'linear-gradient(135deg, rgba(72,144,216,0.32), rgba(45,103,147,0.24))',
@@ -63,6 +83,7 @@ export function Nav() {
           <a
             key={s.id}
             href={`#${s.id}`}
+            data-nav-id={s.id}
             onClick={(e) => onAnchorClick(e, s.id)}
             aria-current={isActive ? 'true' : undefined}
             className={`relative rounded-full px-2 py-1 text-[0.7rem] font-semibold transition-colors sm:px-3 sm:text-sm ${
