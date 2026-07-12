@@ -17,10 +17,6 @@
 
 </div>
 
-<table>
-<tr valign="top">
-<td width="58%">
-
 ### Tech Stack
 
 **Languages**<br>
@@ -41,9 +37,6 @@
 **Cloud / Tools**<br>
 ![Azure](https://img.shields.io/badge/Azure-0078D4?style=flat-square&logo=microsoftazure&logoColor=white) ![GCP](https://img.shields.io/badge/GCP-4285F4?style=flat-square&logo=googlecloud&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white) ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white) ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white) ![LaTeX](https://img.shields.io/badge/LaTeX-008080?style=flat-square&logo=latex&logoColor=white)
 
-</td>
-<td width="42%">
-
 ### Featured Projects
 
 | Project | Stack | Links |
@@ -55,7 +48,3 @@
 | **Nota Insights** — NLP search & summarization | Python · BERT · NLP | [GitHub](https://github.com/pigchip/Nota-Insights) |
 | **Mobility Time Saver** — CDMX mobility PWA | Next.js · Java · OpenTripPlanner | [Live](https://pwa-nextjs-nine.vercel.app) |
 | **AI-NOW** — ChatGPT-integrated SaaS | Next.js · Prisma · Clerk · Stripe | [GitHub](https://github.com/pigchip/AI-NOW) |
-
-</td>
-</tr>
-</table>
