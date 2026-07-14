@@ -53,6 +53,27 @@ jobs:
           mkdir -p dist/one-dsa
           cp -r one-dsa-src/dist/. dist/one-dsa/
 
+      - name: Checkout Local RAG
+        uses: actions/checkout@v4
+        with:
+          repository: pigchip/local-rag
+          ref: main
+          path: local-rag-src
+
+      - name: Build Local RAG frontend (served at /local-rag)
+        run: |
+          cd local-rag-src/frontend
+          npm ci
+          npm run build
+        env:
+          BASE_PATH: /local-rag/
+          VITE_API_BASE_URL: https://api.aguzmancruz.com
+
+      - name: Nest Local RAG under /local-rag
+        run: |
+          mkdir -p dist/local-rag
+          cp -r local-rag-src/frontend/dist/. dist/local-rag/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
