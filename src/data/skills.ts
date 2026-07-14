@@ -61,6 +61,9 @@ import mistralLogo from '@/assets/brands/mistral.svg'
 import deepseekLogo from '@/assets/brands/deepseek.svg'
 import liquidLogo from '@/assets/brands/liquid.png'
 import gemmaLogo from '@/assets/brands/gemma.png'
+import ubuntuLogo from '@/assets/brands/ubuntu.svg'
+import sshLogo from '@/assets/brands/ssh.svg'
+import oracleCloudLogo from '@/assets/brands/oraclecloud.svg'
 
 export const skills: SkillCategory[] = [
   {
@@ -144,6 +147,7 @@ export const skills: SkillCategory[] = [
       { label: 'Render', logo: renderLogo },
       { label: 'Cloudflare', logo: cloudflareLogo },
       { label: 'Azure', logo: azureLogo },
+      { label: 'Oracle Cloud', logo: oracleCloudLogo },
       { label: 'GCP', logo: googlecloudLogo },
       { label: 'AWS', logo: awsLogo },
     ],
@@ -195,6 +199,8 @@ export const skills: SkillCategory[] = [
     icon: 'Wrench',
     items: [
       { label: 'Git', logo: gitLogo },
+      { label: 'Ubuntu', logo: ubuntuLogo },
+      { label: 'SSH', logo: sshLogo },
       { label: 'LaTeX', logo: latexLogo },
       { label: 'Bash', logo: bashLogo },
     ],
