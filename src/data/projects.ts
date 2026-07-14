@@ -4,6 +4,7 @@ import notaLogo from '@/assets/projects/nota.png'
 import mtsLogo from '@/assets/projects/mts.png'
 import mawiLogo from '@/assets/projects/mawi.png'
 import oneDsaLogo from '@/assets/projects/one-dsa.svg'
+import localRagLogo from '@/assets/projects/local-rag.svg'
 import microsoftLogo from '@/assets/logos/microsoft.svg'
 import ipnLogo from '@/assets/logos/ipn.png'
 
@@ -21,6 +22,26 @@ export const projects: Project[] = [
       'Evaluating both models on a held-out validation set and domain tasks to drive a data-backed model selection.',
       'Exporting the selected model to CPU-optimized ONNX (INT8) for a GPU-less Microsoft Dev Box, plus a reusable ONNX Runtime inference SDK.',
     ],
+    hasMedia: true,
+  },
+  {
+    title: 'Local RAG',
+    period: 'July 2026',
+    description:
+      'A retrieval-augmented chat app: a Vite + React frontend over a FastAPI + Haystack + LanceDB pipeline, with grounded, cited answers streamed token-by-token and provider-swappable generation.',
+    icon: 'MessageSquare',
+    logo: localRagLogo,
+    logoChip: true,
+    scope: 'personal',
+    stack: ['React', 'TypeScript', 'FastAPI', 'Haystack', 'LanceDB'],
+    points: [
+      'Built per-KB knowledge bases as isolated LanceDB tables with auto-generated descriptions and example questions, backed by SQLite session history.',
+      'Delivered grounded answers with inline [n] citations and expandable source excerpts, streamed token-by-token over SSE with a stop button.',
+      'Made generation provider-swappable at runtime (Groq, NVIDIA NIM, Google Gemini, OpenRouter, Hugging Face) while embeddings and retrieval always run locally.',
+      'Deployed the FastAPI backend behind Caddy on an Azure VM and the SPA on GitHub Pages at aguzmancruz.com/local-rag.',
+    ],
+    url: 'https://aguzmancruz.com/local-rag/',
+    links: [{ label: 'GitHub', href: 'https://github.com/pigchip/local-rag' }],
     hasMedia: true,
   },
   {

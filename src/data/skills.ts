@@ -46,6 +46,21 @@ import mcpLogo from '@/assets/brands/mcp.svg'
 import playwrightLogo from '@/assets/brands/playwright.svg'
 import kustoLogo from '@/assets/brands/kusto.png'
 import copilotColorLogo from '@/assets/brands/copilot-color.png'
+import fastapiLogo from '@/assets/brands/fastapi.svg'
+import dockerLogo from '@/assets/brands/docker.svg'
+import caddyLogo from '@/assets/brands/caddy.svg'
+import sqliteLogo from '@/assets/brands/sqlite.svg'
+import geminiLogo from '@/assets/brands/gemini.svg'
+import haystackLogo from '@/assets/brands/haystack.svg'
+import lancedbLogo from '@/assets/brands/lancedb.png'
+import groqLogo from '@/assets/brands/groq.png'
+import nvidiaLogo from '@/assets/brands/nvidia.svg'
+import llamaLogo from '@/assets/brands/meta.svg'
+import qwenLogo from '@/assets/brands/qwen.svg'
+import mistralLogo from '@/assets/brands/mistral.svg'
+import deepseekLogo from '@/assets/brands/deepseek.svg'
+import liquidLogo from '@/assets/brands/liquid.png'
+import gemmaLogo from '@/assets/brands/gemma.png'
 
 export const skills: SkillCategory[] = [
   {
@@ -88,7 +103,7 @@ export const skills: SkillCategory[] = [
       { label: 'Electron', logo: electronLogo },
       { label: 'Tailwind CSS', logo: tailwindcssLogo },
       { label: 'Shopify', logo: shopifyLogo },
-      { label: 'Liquid', mono: 'Liquid' },
+      { label: 'Liquid', logo: liquidLogo },
     ],
   },
   {
@@ -99,6 +114,9 @@ export const skills: SkillCategory[] = [
       { label: 'Node.js', logo: nodejsLogo },
       { label: 'ASP.NET Core', logo: dotnetcoreLogo },
       { label: 'Spring Boot', logo: springLogo },
+      { label: 'FastAPI', logo: fastapiLogo },
+      { label: 'Docker', logo: dockerLogo },
+      { label: 'Caddy', logo: caddyLogo },
       { label: 'Visual Studio', logo: visualstudioLogo },
     ],
   },
@@ -112,6 +130,8 @@ export const skills: SkillCategory[] = [
       { label: 'Neo4j', logo: neo4jLogo },
       { label: 'Prisma', logo: prismaLogo },
       { label: 'Supabase', logo: supabaseLogo },
+      { label: 'SQLite', logo: sqliteLogo },
+      { label: 'LanceDB', logo: lancedbLogo },
       { label: 'Kusto (KQL)', logo: kustoLogo },
     ],
   },
@@ -137,7 +157,23 @@ export const skills: SkillCategory[] = [
       { label: 'scikit-learn', logo: scikitlearnLogo },
       { label: 'ONNX', logo: onnxLogo },
       { label: 'Hugging Face', logo: huggingfaceLogo },
+      { label: 'Haystack', logo: haystackLogo },
+      { label: 'Groq', logo: groqLogo },
+      { label: 'NVIDIA NIM', logo: nvidiaLogo },
       { label: 'BERT', mono: 'BERT' },
+    ],
+  },
+  {
+    title: 'Language Models',
+    accent: '#8b7cff',
+    icon: 'Bot',
+    items: [
+      { label: 'Llama', logo: llamaLogo },
+      { label: 'Qwen', logo: qwenLogo },
+      { label: 'Mistral', logo: mistralLogo },
+      { label: 'DeepSeek', logo: deepseekLogo },
+      { label: 'Gemma', logo: gemmaLogo },
+      { label: 'Google Gemini', logo: geminiLogo },
     ],
   },
   {
