@@ -57,6 +57,10 @@ import groqLogo from '@/assets/brands/groq.png'
 import nvidiaLogo from '@/assets/brands/nvidia.svg'
 import llamaLogo from '@/assets/brands/meta.svg'
 import qwenLogo from '@/assets/brands/qwen.svg'
+import streamlitLogo from '@/assets/brands/streamlit.svg'
+import llamaFactoryLogo from '@/assets/brands/llamafactory.png'
+import unslothLogo from '@/assets/brands/unsloth.png'
+import phiLogo from '@/assets/logos/microsoft.svg'
 import mistralLogo from '@/assets/brands/mistral.svg'
 import deepseekLogo from '@/assets/brands/deepseek.svg'
 import liquidLogo from '@/assets/brands/liquid.png'
@@ -105,6 +109,7 @@ export const skills: SkillCategory[] = [
       { label: 'Framer Motion', logo: framerMotionLogo },
       { label: 'Electron', logo: electronLogo },
       { label: 'Tailwind CSS', logo: tailwindcssLogo },
+      { label: 'Streamlit', logo: streamlitLogo },
       { label: 'Shopify', logo: shopifyLogo },
       { label: 'Liquid', logo: liquidLogo },
     ],
@@ -161,6 +166,8 @@ export const skills: SkillCategory[] = [
       { label: 'scikit-learn', logo: scikitlearnLogo },
       { label: 'ONNX', logo: onnxLogo },
       { label: 'Hugging Face', logo: huggingfaceLogo },
+      { label: 'LLaMA-Factory', logo: llamaFactoryLogo },
+      { label: 'Unsloth', logo: unslothLogo },
       { label: 'Haystack', logo: haystackLogo },
       { label: 'Groq', logo: groqLogo },
       { label: 'NVIDIA NIM', logo: nvidiaLogo },
@@ -174,6 +181,7 @@ export const skills: SkillCategory[] = [
     items: [
       { label: 'Llama', logo: llamaLogo },
       { label: 'Qwen', logo: qwenLogo },
+      { label: 'Phi', logo: phiLogo },
       { label: 'Mistral', logo: mistralLogo },
       { label: 'DeepSeek', logo: deepseekLogo },
       { label: 'Gemma', logo: gemmaLogo },

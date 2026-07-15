@@ -11,17 +11,19 @@ import ipnLogo from '@/assets/logos/ipn.png'
 export const projects: Project[] = [
   {
     title: 'Open-Weight LLM Fine-Tuning & Comparison',
-    period: 'In Progress',
+    period: 'July 2026',
     description:
-      'Fine-tuning and benchmarking Qwen3-8B-Instruct and Phi-4 with QDoRA on a single RTX 5090, then deploying the winner as a CPU-optimized ONNX (INT8) build.',
+      'Fine-tuning and benchmarking Qwen3-8B-Instruct and Phi-4 with QDoRA on a single RTX 5090, then deploying the winner as a CPU-optimized ONNX (INT4 weights + INT8 compute) build, all driven from a Streamlit web app.',
     icon: 'BrainCircuit',
     scope: 'personal',
-    stack: ['LLaMA-Factory', 'Unsloth', 'PyTorch', 'ONNX Runtime', 'Python'],
+    stack: ['LLaMA-Factory', 'QDoRA', 'PyTorch', 'ONNX Runtime', 'Streamlit', 'Python'],
     points: [
-      'Fine-tuning Qwen3-8B-Instruct and Phi-4 with QDoRA (4-bit + DoRA, all-linear) on a single RTX 5090 using LLaMA-Factory + Unsloth, with identical core hyperparameters for a fair comparison.',
-      'Evaluating both models on a held-out validation set and domain tasks to drive a data-backed model selection.',
-      'Exporting the selected model to CPU-optimized ONNX (INT8) for a GPU-less Microsoft Dev Box, plus a reusable ONNX Runtime inference SDK.',
+      'Fine-tuning Qwen3-8B-Instruct and Phi-4 with QDoRA (4-bit + DoRA, all-linear) on a single RTX 5090 using LLaMA-Factory, with identical core hyperparameters for a fair comparison.',
+      'Evaluating both models on held-out and generated domain questions with reference metrics (ROUGE, BLEU, chrF) and a Copilot-CLI LLM-as-judge (pairwise and reference-graded) to drive a data-backed model selection.',
+      'Exporting the selected model to CPU-optimized ONNX (INT4 weights + INT8 compute) for a GPU-less Microsoft Dev Box, plus a reusable ONNX Runtime inference SDK.',
+      'Orchestrating the whole pipeline - ingestion, data prep, training, merge, export, evaluation and inference - from a Streamlit web app with live GPU-job logs and enterprise data-ingestion connectors.',
     ],
+    links: [{ label: 'GitHub', href: 'https://github.com/pigchip/llm-fine-tuning' }],
     hasMedia: true,
   },
   {
