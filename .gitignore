@@ -15,6 +15,9 @@ dist-ssr
 # DNS zone file (Cloudflare import helper - not part of the deployed site)
 aguzmancruz.com.zone
 
+# Browser-automation debug output (console logs and page snapshots)
+.playwright-mcp/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

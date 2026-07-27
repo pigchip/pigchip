@@ -1,6 +1,14 @@
 export type ContactKind = 'mail' | 'phone' | 'globe' | 'github' | 'linkedin'
+export type ContactId =
+  | 'workEmail'
+  | 'personalEmail'
+  | 'workGitHub'
+  | 'personalGitHub'
+  | 'linkedin'
+  | 'website'
 
 export interface ContactLink {
+  id: ContactId
   kind: ContactKind
   label: string
   handle: string
@@ -19,8 +27,10 @@ export interface Profile {
 }
 
 /** A single technology shown as a tile inside a SkillCard. */
-interface SkillItem {
+export interface SkillItem {
   label: string
+  /** Optional key for the few skill labels that are localized. */
+  localizationKey?: 'Spanish' | 'English' | 'Mandarin Chinese (Simplified)'
   /** Key into the brand registry (data/brands.ts). Omit to render a mono badge. */
   brand?: string
   /** Imported colored logo image URL (rendered on a white chip). */
@@ -30,6 +40,7 @@ interface SkillItem {
 }
 
 export interface SkillCategory {
+  id: SkillCategoryId
   title: string
   /** Accent colour used for the card tint + border. */
   accent: string
@@ -39,7 +50,34 @@ export interface SkillCategory {
   detail?: string
 }
 
+export type SkillCategoryId =
+  | 'programmingLanguages'
+  | 'languages'
+  | 'frontend'
+  | 'backend'
+  | 'databases'
+  | 'cloud'
+  | 'machineLearning'
+  | 'languageModels'
+  | 'aiTools'
+  | 'tools'
+
+export type ProjectId =
+  | 'llmFineTuning'
+  | 'localRag'
+  | 'oneDsa'
+  | 'devxWorkflows'
+  | 'exchangePlatform'
+  | 'notaInsights'
+  | 'mobilityTimeSaver'
+  | 'mawi'
+  | 'aiNow'
+  | 'toyStore'
+
+export type ProjectLinkId = 'github' | 'frontend' | 'backend'
+
 export interface Project {
+  id: ProjectId
   title: string
   period: string
   description: string
@@ -61,12 +99,13 @@ export interface Project {
   /** Source repository URL. */
   repo?: string
   /** Multiple labelled links (e.g. separate frontend/backend repos). */
-  links?: { label: string; href: string }[]
+  links?: { id: ProjectLinkId; label: string; href: string }[]
   /** When true, reserve a white-frame media placeholder for a photo/video. */
   hasMedia?: boolean
 }
 
 export interface ExperienceItem {
+  id: string
   role: string
   org: string
   period: string
@@ -80,6 +119,7 @@ export interface ExperienceItem {
 }
 
 export interface EducationItem {
+  id: string
   school: string
   degree: string
   period: string

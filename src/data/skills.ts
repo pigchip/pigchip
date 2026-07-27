@@ -71,6 +71,7 @@ import oracleCloudLogo from '@/assets/brands/oraclecloud.svg'
 
 export const skills: SkillCategory[] = [
   {
+    id: 'programmingLanguages',
     title: 'Programming Languages',
     accent: '#4890d8',
     icon: 'Code2',
@@ -85,16 +86,22 @@ export const skills: SkillCategory[] = [
     ],
   },
   {
+    id: 'languages',
     title: 'Languages',
     accent: '#c084fc',
     icon: 'Languages',
     items: [
-      { label: 'Spanish', mono: 'ES' },
-      { label: 'English', mono: 'EN' },
-      { label: 'Mandarin Chinese (Simplified)', mono: '中文' },
+      { label: 'Spanish', localizationKey: 'Spanish', mono: 'ES' },
+      { label: 'English', localizationKey: 'English', mono: 'EN' },
+      {
+        label: 'Mandarin Chinese (Simplified)',
+        localizationKey: 'Mandarin Chinese (Simplified)',
+        mono: '中文',
+      },
     ],
   },
   {
+    id: 'frontend',
     title: 'Frontend',
     accent: '#4ec2c7',
     icon: 'Layout',
@@ -115,6 +122,7 @@ export const skills: SkillCategory[] = [
     ],
   },
   {
+    id: 'backend',
     title: 'Backend',
     accent: '#3fb950',
     icon: 'Server',
@@ -129,6 +137,7 @@ export const skills: SkillCategory[] = [
     ],
   },
   {
+    id: 'databases',
     title: 'Databases',
     accent: '#e3a04e',
     icon: 'Database',
@@ -144,6 +153,7 @@ export const skills: SkillCategory[] = [
     ],
   },
   {
+    id: 'cloud',
     title: 'Cloud',
     accent: '#4890d8',
     icon: 'Cloud',
@@ -158,6 +168,7 @@ export const skills: SkillCategory[] = [
     ],
   },
   {
+    id: 'machineLearning',
     title: 'Machine Learning',
     accent: '#ee4c2c',
     icon: 'BrainCircuit',
@@ -175,6 +186,7 @@ export const skills: SkillCategory[] = [
     ],
   },
   {
+    id: 'languageModels',
     title: 'Language Models',
     accent: '#8b7cff',
     icon: 'Bot',
@@ -189,6 +201,7 @@ export const skills: SkillCategory[] = [
     ],
   },
   {
+    id: 'aiTools',
     title: 'AI Tools',
     accent: '#d97757',
     icon: 'Sparkles',
@@ -202,6 +215,7 @@ export const skills: SkillCategory[] = [
     ],
   },
   {
+    id: 'tools',
     title: 'Tools',
     accent: '#9aa7c7',
     icon: 'Wrench',

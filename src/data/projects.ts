@@ -10,6 +10,7 @@ import ipnLogo from '@/assets/logos/ipn.png'
 
 export const projects: Project[] = [
   {
+    id: 'llmFineTuning',
     title: 'Open-Weight LLM Fine-Tuning & Comparison',
     period: 'July 2026',
     description:
@@ -23,10 +24,11 @@ export const projects: Project[] = [
       'Exporting the selected model to CPU-optimized ONNX (INT4 weights + INT8 compute) for a GPU-less Microsoft Dev Box, plus a reusable ONNX Runtime inference SDK.',
       'Orchestrating the whole pipeline - ingestion, data prep, training, merge, export, evaluation and inference - from a Streamlit web app with live GPU-job logs and enterprise data-ingestion connectors.',
     ],
-    links: [{ label: 'GitHub', href: 'https://github.com/pigchip/llm-fine-tuning' }],
+    links: [{ id: 'github', label: 'GitHub', href: 'https://github.com/pigchip/llm-fine-tuning' }],
     hasMedia: true,
   },
   {
+    id: 'localRag',
     title: 'Local RAG',
     period: 'July 2026',
     description:
@@ -43,10 +45,11 @@ export const projects: Project[] = [
       'Deployed the FastAPI backend behind Caddy on an Azure VM and the SPA on GitHub Pages at aguzmancruz.com/local-rag.',
     ],
     url: 'https://aguzmancruz.com/local-rag/',
-    links: [{ label: 'GitHub', href: 'https://github.com/pigchip/local-rag' }],
+    links: [{ id: 'github', label: 'GitHub', href: 'https://github.com/pigchip/local-rag' }],
     hasMedia: true,
   },
   {
+    id: 'oneDsa',
     title: 'One-DSA',
     period: 'July 2026',
     description:
@@ -62,10 +65,11 @@ export const projects: Project[] = [
       'Shipped as a fast client-side React 19 + Vite SPA with Shiki-powered syntax highlighting for reading-optimized code.',
     ],
     url: 'https://aguzmancruz.com/one-dsa/',
-    links: [{ label: 'GitHub', href: 'https://github.com/pigchip/one-dsa' }],
+    links: [{ id: 'github', label: 'GitHub', href: 'https://github.com/pigchip/one-dsa' }],
     hasMedia: true,
   },
   {
+    id: 'devxWorkflows',
     title: 'DevX Workflows UI Desktop',
     period: 'June 2026',
     description:
@@ -83,6 +87,7 @@ export const projects: Project[] = [
     hasMedia: true,
   },
   {
+    id: 'exchangePlatform',
     title: 'Semester Exchange Request Platform',
     period: 'March 2025',
     description:
@@ -98,12 +103,13 @@ export const projects: Project[] = [
       'Increased efficiency, collaboration, and productivity between administrative staff and the student community.',
     ],
     links: [
-      { label: 'Frontend', href: 'https://github.com/pigchip/frontend' },
-      { label: 'Backend', href: 'https://github.com/pigchip/GestionAcademicaAPI' },
+      { id: 'frontend', label: 'Frontend', href: 'https://github.com/pigchip/frontend' },
+      { id: 'backend', label: 'Backend', href: 'https://github.com/pigchip/GestionAcademicaAPI' },
     ],
     hasMedia: true,
   },
   {
+    id: 'notaInsights',
     title: 'Nota Insights',
     period: 'January 2025',
     description:
@@ -120,6 +126,7 @@ export const projects: Project[] = [
     hasMedia: true,
   },
   {
+    id: 'mobilityTimeSaver',
     title: 'Mobility Time Saver',
     period: 'November 2024',
     description:
@@ -137,6 +144,7 @@ export const projects: Project[] = [
     hasMedia: true,
   },
   {
+    id: 'mawi',
     title: 'Mawí Ecológica',
     period: 'July 2024',
     description:
@@ -155,6 +163,7 @@ export const projects: Project[] = [
     hasMedia: true,
   },
   {
+    id: 'aiNow',
     title: 'AI-NOW SaaS Web Application',
     period: 'January 2024',
     description:
@@ -172,6 +181,7 @@ export const projects: Project[] = [
     hasMedia: true,
   },
   {
+    id: 'toyStore',
     title: 'Toy Store E-commerce',
     period: 'January 2024',
     description:
@@ -185,7 +195,7 @@ export const projects: Project[] = [
       'Deployed the app on Render for continuous hosting with a public live URL.',
     ],
     url: 'https://zesty-chaja-7e767e.netlify.app/',
-    links: [{ label: 'GitHub', href: 'https://github.com/pigchip/ecommerce-app' }],
+    links: [{ id: 'github', label: 'GitHub', href: 'https://github.com/pigchip/ecommerce-app' }],
     hasMedia: true,
   },
 ]

@@ -1,27 +1,14 @@
-import type { EducationItem } from '@/types'
 import escomLogo from '@/assets/logos/escom.png'
 import chandigarhLogo from '@/assets/logos/chandigarh.png'
 
-export const education: EducationItem[] = [
+export const education = [
   {
-    school: 'Escuela Superior de Cómputo, Instituto Politécnico Nacional',
-    degree: 'B.S. in Computer Systems Engineering',
-    period: 'Graduated July 2025',
+    id: 'escom',
     logo: escomLogo,
     logoChip: true,
-    points: [
-      'Overall average: 9.0 / 10.0.',
-      'Member of the Algorithm Club.',
-    ],
   },
   {
-    school: 'Chandigarh University',
-    degree: 'B.S. in Computer Science Engineering (IoT)',
-    period: 'February 2023 to June 2023',
+    id: 'chandigarh',
     logo: chandigarhLogo,
-    points: [
-      'Semester exchange in Punjab, India.',
-      'Built artificial vision projects using a Raspberry Pi 4.',
-    ],
   },
-]
+] as const

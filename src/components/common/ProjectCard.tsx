@@ -1,6 +1,8 @@
 ﻿import type { Project } from '@/types'
 import { icons, ExternalLink } from '@/lib/icons'
 import { LogoTile } from '@/components/common/LogoTile'
+import { useLocale } from '@/i18n/useLocale'
+import { formatMessage } from '@/i18n/types'
 
 interface ProjectCardProps {
   project: Project
@@ -12,6 +14,7 @@ interface ProjectCardProps {
  * project has a link it renders as an anchor that opens in a new tab.
  */
 export function ProjectCard({ project }: ProjectCardProps) {
+  const { messages } = useLocale()
   const Logo = icons[project.icon]
   const links = project.links ?? []
   const singleLink = project.url ?? (links.length === 0 ? project.repo : undefined)
@@ -25,7 +28,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           invert={project.logoInvert}
           chip={project.logoChip}
           Icon={Logo}
-          alt={`${project.title} logo`}
+          alt={formatMessage(messages.common.logoAlt, { name: project.title })}
         />
         <div className="flex min-w-0 flex-col">
           <h3 className="font-serif text-base font-bold leading-tight text-white sm:text-lg">
@@ -56,7 +59,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
                       }
                 }
               >
-                {project.scope === 'internal' ? 'Work' : 'Personal'}
+                <span>
+                  {project.scope === 'internal'
+                    ? messages.common.work
+                    : messages.common.personal}
+                </span>
               </span>
             )}
             {clickable && (

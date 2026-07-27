@@ -9,6 +9,8 @@ import { onAnchorClick } from '@/lib/scroll'
 import { Mail, Phone, Globe } from '@/lib/icons'
 import { fadeUp, stagger, pop, popGroup } from '@/lib/motion'
 import { useCenterPop } from '@/lib/usePop'
+import { useLocale } from '@/i18n/useLocale'
+import { formatMessage, type Locale } from '@/i18n/types'
 
 export function ContactIcon({ kind, size = 16 }: { kind: ContactKind; size?: number }) {
   if (kind === 'mail') return <Mail size={size} />
@@ -17,16 +19,19 @@ export function ContactIcon({ kind, size = 16 }: { kind: ContactKind; size?: num
   return <BrandIcon brand={kind} size={size} />
 }
 
-// Persists across slide remounts so the typewriter only runs the first time.
-let heroHasTyped = false
+// Each language types once, including when selected for the first time.
+const typedLocales = new Set<Locale>()
 
 export function Hero() {
-  const [typing] = useState(!heroHasTyped)
+  const { locale, messages } = useLocale()
+  const [typing] = useState(!typedLocales.has(locale))
   useEffect(() => {
-    heroHasTyped = true
-  }, [])
+    typedLocales.add(locale)
+  }, [locale])
 
-  const roleText = `SOFTWARE ENGINEER L60 @ ${profile.company.toUpperCase()}`
+  const roleText = formatMessage(messages.hero.role, {
+    company: profile.company.toUpperCase(),
+  })
   const nameParts = profile.name.split(' ')
   const heroName =
     nameParts.length >= 4
@@ -42,7 +47,7 @@ export function Hero() {
   const roleDelay = typing ? nameEnd : 0
   const roleEnd = nameEnd + roleText.length * roleSpeed
   const taglineDelay = typing ? roleEnd : 0
-  const taglineEnd = roleEnd + profile.tagline.length * taglineSpeed
+  const taglineEnd = roleEnd + messages.hero.tagline.length * taglineSpeed
 
   // Reveal buttons + contact tags with a curtain wipe once typing completes.
   const [revealed, setRevealed] = useState(!typing)
@@ -108,7 +113,7 @@ export function Hero() {
           className="mt-4 max-w-5xl text-left text-sm leading-relaxed text-white text-legible-strong sm:mt-5 sm:text-justify sm:text-lg"
         >
           <Typewriter
-            text={profile.tagline}
+            text={messages.hero.tagline}
             enabled={typing}
             speed={taglineSpeed}
             startDelay={taglineDelay}
@@ -125,12 +130,12 @@ export function Hero() {
         >
           <motion.div variants={pop}>
             <ButtonLink href="#projects" onClick={(e) => onAnchorClick(e, 'projects')}>
-              View projects
+              <span>{messages.hero.viewProjects}</span>
             </ButtonLink>
           </motion.div>
           <motion.div variants={pop}>
             <ButtonLink href="#contact" variant="ghost" onClick={(e) => onAnchorClick(e, 'contact')}>
-              Get in touch
+              <span>{messages.hero.getInTouch}</span>
             </ButtonLink>
           </motion.div>
         </motion.div>
@@ -143,8 +148,8 @@ export function Hero() {
           className="mt-6 flex flex-col gap-2 sm:mt-8"
         >
           {[
-            profile.contacts.filter((c) => c.kind === 'mail' || c.kind === 'phone'),
-            profile.contacts.filter((c) => c.kind !== 'mail' && c.kind !== 'phone'),
+            profile.contacts.filter((c) => c.kind === 'mail'),
+            profile.contacts.filter((c) => c.kind !== 'mail'),
           ].map((row, i) => (
             <div key={i} className="flex flex-wrap gap-2">
               {row.map((c) => (
@@ -152,7 +157,7 @@ export function Hero() {
                   variants={pop}
                   key={c.href}
                   href={c.href}
-                  target={c.kind === 'mail' || c.kind === 'phone' ? undefined : '_blank'}
+                  target={c.kind === 'mail' ? undefined : '_blank'}
                   rel="noreferrer"
                   className="inline-flex items-center gap-1.5 rounded-lg border border-white/15 bg-white/8 px-2.5 py-1 text-xs text-white/90 text-legible-strong transition-colors hover:border-white/25 hover:bg-white/12 hover:text-white sm:px-3 sm:py-1.5 sm:text-sm"
                 >

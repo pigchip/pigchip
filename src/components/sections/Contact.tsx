@@ -8,6 +8,8 @@ import { staggerItem } from '@/lib/motion'
 import { useCenterPop } from '@/lib/usePop'
 import githubLogo from '@/assets/brands/github.svg'
 import linkedinLogo from '@/assets/brands/linkedin.svg'
+import { useLocale } from '@/i18n/useLocale'
+import { formatMessage } from '@/i18n/types'
 
 const brandLogos: Partial<Record<string, string>> = {
   github: githubLogo,
@@ -15,6 +17,7 @@ const brandLogos: Partial<Record<string, string>> = {
 }
 
 function ContactCard({ contact: c }: { contact: ContactLink }) {
+  const { messages } = useLocale()
   const logo = c.logo ?? brandLogos[c.kind]
   const copyValue = c.kind === 'mail' || c.kind === 'phone' ? c.handle : c.href
   const { ref, animate } = useCenterPop<HTMLDivElement>()
@@ -29,7 +32,7 @@ function ContactCard({ contact: c }: { contact: ContactLink }) {
     >
       <CopyButton
         value={copyValue}
-        label={`Copy ${c.label.toLowerCase()}`}
+        label={formatMessage(messages.common.copy, { label: c.label })}
         className="absolute right-3 top-1/2 z-10 -translate-y-1/2"
       />
       <a
@@ -42,7 +45,7 @@ function ContactCard({ contact: c }: { contact: ContactLink }) {
           <span className="flex h-8 w-8 shrink-0 items-center justify-center sm:h-14 sm:w-14">
             <img
               src={logo}
-              alt={`${c.label} logo`}
+              alt={formatMessage(messages.common.logoAlt, { name: c.label })}
               loading="lazy"
               className="h-full w-full object-contain"
             />
@@ -77,7 +80,11 @@ function ContactCard({ contact: c }: { contact: ContactLink }) {
                       }
                 }
               >
-                {c.scope === 'internal' ? 'Work' : 'Personal'}
+                <span>
+                  {c.scope === 'internal'
+                    ? messages.common.work
+                    : messages.common.personal}
+                </span>
               </span>
             )}
           </span>
@@ -89,17 +96,22 @@ function ContactCard({ contact: c }: { contact: ContactLink }) {
 }
 
 export function Contact() {
+  const { messages } = useLocale()
+
   return (
     <Section
       id="contact"
-      title="Get in touch"
+      title={messages.contact.title}
       icon="Mail"
-      eyebrow="Let's connect"
+      eyebrow={messages.contact.eyebrow}
       sectionClassName="flex min-h-svh flex-col justify-start sm:justify-center"
     >
-      <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
-        {profile.contacts.map((c) => (
-          <ContactCard key={c.href} contact={c} />
+      <div className="grid items-start gap-3 sm:grid-cols-2 sm:gap-4">
+        {profile.contacts.map((contact) => (
+          <ContactCard
+            key={contact.id}
+            contact={{ ...contact, label: messages.contact.labels[contact.id] }}
+          />
         ))}
       </div>
     </Section>

@@ -3,6 +3,8 @@ import type { SkillCategory } from '@/types'
 import { icons } from '@/lib/icons'
 import { staggerItem, hoverLift } from '@/lib/motion'
 import { useCenterPop } from '@/lib/usePop'
+import { useLocale } from '@/i18n/useLocale'
+import { formatMessage } from '@/i18n/types'
 
 interface SkillCardProps {
   category: SkillCategory
@@ -15,6 +17,7 @@ interface SkillCardProps {
  * accent-tinted monogram tile.
  */
 export function SkillCard({ category }: SkillCardProps) {
+  const { messages } = useLocale()
   const HeaderIcon = icons[category.icon]
   // Balance the logo grid so multi-row cards keep an even count per row
   // (e.g. 6 items render as 3 + 3 rather than 5 + 1).
@@ -57,7 +60,7 @@ export function SkillCard({ category }: SkillCardProps) {
               <span className="flex h-8 w-8 items-center justify-center sm:h-12 sm:w-12">
                 <img
                   src={item.logo}
-                  alt={`${item.label} logo`}
+                  alt={formatMessage(messages.common.logoAlt, { name: item.label })}
                   loading="lazy"
                   className="h-full w-full object-contain"
                 />

@@ -2,6 +2,8 @@ import { useState } from 'react'
 import type { ExperienceItem } from '@/types'
 import { LogoTile } from '@/components/common/LogoTile'
 import { Briefcase, FlaskConical, ChevronDown } from '@/lib/icons'
+import { useLocale } from '@/i18n/useLocale'
+import { formatMessage } from '@/i18n/types'
 
 interface ExperienceCardProps {
   item: ExperienceItem
@@ -13,6 +15,7 @@ interface ExperienceCardProps {
  * (sm and up) the points are always visible.
  */
 export function ExperienceCard({ item }: ExperienceCardProps) {
+  const { messages } = useLocale()
   const [open, setOpen] = useState(false)
   const Icon = item.kind === 'research' ? FlaskConical : Briefcase
 
@@ -23,7 +26,12 @@ export function ExperienceCard({ item }: ExperienceCardProps) {
     >
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div className="flex items-center gap-3">
-          <LogoTile logo={item.logo} chip={item.logoChip} Icon={Icon} alt={`${item.org} logo`} />
+          <LogoTile
+            logo={item.logo}
+            chip={item.logoChip}
+            Icon={Icon}
+            alt={formatMessage(messages.common.logoAlt, { name: item.org })}
+          />
           <div>
             <h3 className="font-serif text-lg font-bold leading-tight text-white">{item.role}</h3>
             <p className="text-sm text-white/70">{item.org}</p>
@@ -40,7 +48,9 @@ export function ExperienceCard({ item }: ExperienceCardProps) {
           aria-hidden="true"
           className="flex items-center gap-1 self-start text-xs font-semibold text-[var(--color-ember)] sm:hidden"
         >
-          {open ? 'Hide details' : 'Show details'}
+          <span>
+            {open ? messages.common.hideDetails : messages.common.showDetails}
+          </span>
           <ChevronDown
             size={14}
             className={`transition-transform ${open ? 'rotate-180' : ''}`}

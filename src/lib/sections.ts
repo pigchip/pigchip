@@ -1,11 +1,11 @@
-/** Single source of truth for section identity, order, and nav labels. */
+/** Single source of truth for section identity and order. */
 export const SECTIONS = [
-  { id: 'hero', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'contact', label: 'Contact' },
+  { id: 'hero' },
+  { id: 'about' },
+  { id: 'experience' },
+  { id: 'projects' },
+  { id: 'skills' },
+  { id: 'contact' },
 ] as const
 
 export type SectionId = (typeof SECTIONS)[number]['id']

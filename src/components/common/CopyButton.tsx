@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Copy, Check } from '@/lib/icons'
+import { useLocale } from '@/i18n/useLocale'
 
 interface CopyButtonProps {
   /** Text copied to the clipboard when pressed. */
@@ -15,6 +16,7 @@ interface CopyButtonProps {
  * stays valid, interactive markup.
  */
 export function CopyButton({ value, label, className = '' }: CopyButtonProps) {
+  const { messages } = useLocale()
   const [copied, setCopied] = useState(false)
 
   const copy = async (e: React.MouseEvent) => {
@@ -33,8 +35,8 @@ export function CopyButton({ value, label, className = '' }: CopyButtonProps) {
     <button
       type="button"
       onClick={copy}
-      aria-label={copied ? 'Copied' : label}
-      title={copied ? 'Copied' : label}
+      aria-label={copied ? messages.common.copied : label}
+      title={copied ? messages.common.copied : label}
       className={`inline-flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/60 transition-colors hover:bg-white/12 hover:text-white ${className}`}
     >
       {copied ? (
