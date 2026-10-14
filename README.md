@@ -1,5 +1,12 @@
 <div align="center">
 
+The Pages deployment also hosts [EMHO Initiative](https://aguzmancruz.com/emho-initiative/),
+[Chino 100](https://aguzmancruz.com/chino-100/), and
+[DSA Mastery](https://aguzmancruz.com/one-dsa/dsa-mastery/).
+Their source repositories deploy independently; run this repository's
+`Deploy to GitHub Pages` workflow after project updates to refresh the custom
+domain. The portfolio and Local RAG retain their existing paths.
+
 <img src="./public/banner.png" width="100%" alt="Andrés Miguel Guzmán Cruz - Software Engineer L60 @ Microsoft" />
 
 <br>

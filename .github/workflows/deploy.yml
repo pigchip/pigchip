@@ -25,7 +25,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
           cache-dependency-path: package-lock.json
 
@@ -52,6 +52,38 @@ jobs:
         run: |
           mkdir -p dist/one-dsa
           cp -r one-dsa-src/dist/. dist/one-dsa/
+
+      - name: Checkout compiled Chino 100
+        uses: actions/checkout@v4
+        with:
+          repository: pigchip/chino-100
+          ref: main
+          path: chino-site
+
+      - name: Nest Chino 100 under /chino-100
+        run: |
+          mkdir -p dist/chino-100
+          cp -r chino-site/site/. dist/chino-100/
+
+      - name: Checkout EMHO Initiative
+        uses: actions/checkout@v4
+        with:
+          repository: pigchip/emho-initiative
+          ref: main
+          path: emho-src
+
+      - name: Build EMHO Initiative (served at /emho-initiative)
+        working-directory: emho-src
+        run: |
+          npm ci
+          npm run lint
+          npm run build
+          npm test
+
+      - name: Nest EMHO Initiative under /emho-initiative
+        run: |
+          mkdir -p dist/emho-initiative
+          cp -r emho-src/dist/. dist/emho-initiative/
 
       - name: Checkout Local RAG
         uses: actions/checkout@v4
