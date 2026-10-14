@@ -131,6 +131,36 @@ export const zhCN = {
     title: '项目',
     eyebrow: '我打造的项目',
     items: {
+      emhoInitiative: {
+        title: 'EMHO Initiative',
+        period: '2026年10月',
+        description:
+          '一个面向独立学习项目的双语内容网站，以清新、拼贴风格的设计连接普通话练习、算法学习和原创文章。',
+        points: [
+          '构建英语和西班牙语导航、响应式项目拼贴以及双语 Markdown 文章。',
+          '发布带有独立页面元数据的静态路由，并提供适配移动设备的左侧菜单。',
+        ],
+      },
+      chino100: {
+        title: 'Chino 100',
+        period: '2026年10月',
+        description:
+          '一款面向西班牙语使用者的普通话学习应用，提供引导课程、互动练习、考试和自然中文语音，以及可选的设备端 AI 辅助。',
+        points: [
+          '无需应用后端，即可在浏览器中完成练习、评分、学习路径和进度追踪。',
+          '集成晓晓神经语音，支持正常和慢速发音，以浏览器语音作为备用，并提供可选的本地 AI 指令措辞辅助。',
+        ],
+      },
+      dsaMastery: {
+        title: 'DSA Mastery',
+        period: '2026年10月',
+        description:
+          '一个交互式算法练习工作区，内置 Python 编辑器和浏览器端代码执行，与 One-DSA 的主动回忆练习相辅相成。',
+        points: [
+          '通过 Pyodide 直接在浏览器中运行 Python，并在 worker 中执行代码。',
+          '作为 One-DSA 配套的独立练习应用发布，使用隔离的离线缓存。',
+        ],
+      },
       llmFineTuning: {
         title: '开放权重 LLM 微调与对比',
         period: '2026年7月',

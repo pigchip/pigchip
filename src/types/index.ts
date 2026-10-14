@@ -63,6 +63,9 @@ export type SkillCategoryId =
   | 'tools'
 
 export type ProjectId =
+  | 'emhoInitiative'
+  | 'chino100'
+  | 'dsaMastery'
   | 'llmFineTuning'
   | 'localRag'
   | 'oneDsa'

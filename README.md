@@ -1,12 +1,5 @@
 <div align="center">
 
-The Pages deployment also hosts [EMHO Initiative](https://aguzmancruz.com/emho-initiative/),
-[Chino 100](https://aguzmancruz.com/chino-100/), and
-[DSA Mastery](https://aguzmancruz.com/one-dsa/dsa-mastery/).
-Their source repositories deploy independently; run this repository's
-`Deploy to GitHub Pages` workflow after project updates to refresh the custom
-domain. The portfolio and Local RAG retain their existing paths.
-
 <img src="./public/banner.png" width="100%" alt="Andrés Miguel Guzmán Cruz - Software Engineer L60 @ Microsoft" />
 
 <br>
@@ -40,6 +33,9 @@ domain. The portfolio and Local RAG retain their existing paths.
 
 <table width="100%">
 <tr><th align="left" width="560">Project</th><th align="left" width="300">Stack</th><th align="left" width="160">Links</th></tr>
+<tr><td><b>EMHO Initiative</b> - bilingual learning projects &amp; editorial articles</td><td>React · TypeScript · Vite · Tailwind · Markdown</td><td><a href="https://aguzmancruz.com/emho-initiative/">Live</a> · <a href="https://github.com/pigchip/emho-initiative">GitHub</a></td></tr>
+<tr><td><b>Chino 100</b> - Mandarin lessons, practice &amp; natural Chinese audio</td><td>React · TypeScript · WebLLM · Edge TTS</td><td><a href="https://aguzmancruz.com/chino-100/">Live</a></td></tr>
+<tr><td><b>DSA Mastery</b> - Python editor &amp; in-browser algorithm practice</td><td>React · TypeScript · Python · Pyodide</td><td><a href="https://aguzmancruz.com/one-dsa/dsa-mastery/">Live</a> · <a href="https://github.com/pigchip/one-dsa">GitHub</a></td></tr>
 <tr><td><b>LLM Fine-Tuning &amp; Comparison</b></td><td>LLaMA-Factory · QDoRA · ONNX · Streamlit</td><td><a href="https://github.com/pigchip/llm-fine-tuning">GitHub</a></td></tr>
 <tr><td><b>Local RAG</b> - retrieval-augmented chat with cited answers</td><td>React · FastAPI · Haystack · LanceDB</td><td><a href="https://aguzmancruz.com/local-rag/">Live</a> · <a href="https://github.com/pigchip/local-rag">GitHub</a></td></tr>
 <tr><td><b>One-DSA</b> - DSA mastery with spaced repetition</td><td>React 19 · TypeScript · Shiki</td><td><a href="https://aguzmancruz.com/one-dsa/">Live</a> · <a href="https://github.com/pigchip/one-dsa">GitHub</a></td></tr>

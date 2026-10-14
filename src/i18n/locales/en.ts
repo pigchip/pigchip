@@ -128,6 +128,36 @@ export const en = {
     title: 'Projects',
     eyebrow: "Things I've built",
     items: {
+      emhoInitiative: {
+        title: 'EMHO Initiative',
+        period: 'October 2026',
+        description:
+          'A bilingual editorial home for independent learning projects, connecting Mandarin practice, algorithm study, and original articles in a light, collage-inspired design.',
+        points: [
+          'Built English and Spanish navigation, responsive project collages, and bilingual Markdown articles.',
+          'Published static routes with page-specific metadata and a mobile-friendly left-side menu.',
+        ],
+      },
+      chino100: {
+        title: 'Chino 100',
+        period: 'October 2026',
+        description:
+          'A Spanish-language Mandarin learning app with guided lessons, interactive practice, exams, and natural Chinese audio, plus optional on-device AI assistance.',
+        points: [
+          'Delivered browser-based exercises and grading, learning paths, and progress tracking without a backend.',
+          'Integrated Xiaoxiao neural audio with normal and slow pronunciation, browser speech backup, and optional local AI wording assistance.',
+        ],
+      },
+      dsaMastery: {
+        title: 'DSA Mastery',
+        period: 'October 2026',
+        description:
+          'An interactive algorithm practice workspace with a Python editor and browser-based code execution, complementing One-DSA active-recall drills.',
+        points: [
+          'Run Python directly in the browser with Pyodide, keeping execution in a worker.',
+          'Published as a dedicated practice app alongside One-DSA, with isolated offline caching.',
+        ],
+      },
       llmFineTuning: {
         title: 'Open-Weight LLM Fine-Tuning & Comparison',
         period: 'July 2026',

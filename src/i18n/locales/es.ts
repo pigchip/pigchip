@@ -131,6 +131,36 @@ export const es = {
     title: 'Proyectos',
     eyebrow: 'Lo que he creado',
     items: {
+      emhoInitiative: {
+        title: 'EMHO Initiative',
+        period: 'octubre de 2026',
+        description:
+          'Un espacio editorial bilingüe para proyectos de aprendizaje independientes, que conecta la práctica de mandarín, el estudio de algoritmos y artículos originales con un diseño claro inspirado en collages.',
+        points: [
+          'Creé navegación en español e inglés, collages adaptables de proyectos y artículos bilingües en Markdown.',
+          'Publiqué rutas estáticas con metadatos por página y un menú lateral izquierdo adaptado a móviles.',
+        ],
+      },
+      chino100: {
+        title: 'Chino 100',
+        period: 'octubre de 2026',
+        description:
+          'Una aplicación para aprender mandarín en español con lecciones guiadas, práctica interactiva, exámenes y audio natural en chino, además de asistencia opcional de IA en el dispositivo.',
+        points: [
+          'Implementé ejercicios y evaluación en el navegador, rutas de aprendizaje y seguimiento del progreso sin un servidor de aplicación.',
+          'Integré la voz neuronal Xiaoxiao con pronunciación normal y lenta, voz del navegador como respaldo y asistencia local opcional de IA para las instrucciones.',
+        ],
+      },
+      dsaMastery: {
+        title: 'DSA Mastery',
+        period: 'octubre de 2026',
+        description:
+          'Un espacio interactivo de práctica de algoritmos con editor de Python y ejecución de código en el navegador, que complementa los ejercicios de recuperación activa de One-DSA.',
+        points: [
+          'Ejecuta Python directamente en el navegador con Pyodide, manteniendo la ejecución en un worker.',
+          'Publiqué una aplicación de práctica junto a One-DSA, con caché sin conexión aislada.',
+        ],
+      },
       llmFineTuning: {
         title: 'Ajuste fino y comparación de LLM de pesos abiertos',
         period: 'julio de 2026',

@@ -11,7 +11,7 @@ interface ProjectCardProps {
 /**
  * Static project card: the project's real logo (or an accent lucide icon tile)
  * alongside the title, a muted period, and the main description. When the
- * project has a link it renders as an anchor that opens in a new tab.
+ * primary link stretches across the card while source links remain siblings.
  */
 export function ProjectCard({ project }: ProjectCardProps) {
   const { messages } = useLocale()
@@ -88,7 +88,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       )}
 
       {links.length > 0 && (
-        <div className="mt-auto flex flex-wrap gap-2 pt-1">
+        <div className="relative z-10 mt-auto flex flex-wrap gap-2 self-start pt-1">
           {links.map((l) => (
             <a
               key={l.href}
@@ -106,23 +106,19 @@ export function ProjectCard({ project }: ProjectCardProps) {
     </>
   )
 
-  const className = 'glass group flex h-full flex-col gap-3 rounded-2xl p-3 sm:p-6'
-
-  if (singleLink) {
-    return (
-      <a
-        href={singleLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={className}
-      >
-        {body}
-      </a>
-    )
-  }
+  const className = 'glass group relative flex h-full flex-col gap-3 rounded-2xl p-3 sm:p-6'
 
   return (
     <article className={className}>
+      {singleLink && (
+        <a
+          href={singleLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={project.title}
+          className="absolute inset-0 rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-ember)]"
+        />
+      )}
       {body}
     </article>
   )

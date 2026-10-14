@@ -10,6 +10,55 @@ import ipnLogo from '@/assets/logos/ipn.png'
 
 export const projects: Project[] = [
   {
+    id: 'emhoInitiative',
+    title: 'EMHO Initiative',
+    period: 'October 2026',
+    description:
+      'A bilingual editorial home for independent learning projects, connecting Mandarin practice, algorithm study, and original articles in a light, collage-inspired design.',
+    icon: 'Globe',
+    scope: 'personal',
+    stack: ['React', 'TypeScript', 'Vite', 'Tailwind', 'Markdown'],
+    points: [
+      'Built English and Spanish navigation, responsive project collages, and bilingual Markdown articles.',
+      'Published static routes with page-specific metadata and a mobile-friendly left-side menu.',
+    ],
+    url: 'https://aguzmancruz.com/emho-initiative/',
+    links: [{ id: 'github', label: 'GitHub', href: 'https://github.com/pigchip/emho-initiative' }],
+  },
+  {
+    id: 'chino100',
+    title: 'Chino 100',
+    period: 'October 2026',
+    description:
+      'A Spanish-language Mandarin learning app with guided lessons, interactive practice, exams, and natural Chinese audio, plus optional on-device AI assistance.',
+    icon: 'Languages',
+    scope: 'personal',
+    stack: ['React', 'TypeScript', 'Vite', 'WebLLM', 'Edge TTS'],
+    points: [
+      'Delivered browser-based exercises and grading, learning paths, and progress tracking without a backend.',
+      'Integrated Xiaoxiao neural audio with normal and slow pronunciation, browser speech backup, and optional local AI wording assistance.',
+    ],
+    url: 'https://aguzmancruz.com/chino-100/',
+  },
+  {
+    id: 'dsaMastery',
+    title: 'DSA Mastery',
+    period: 'October 2026',
+    description:
+      'An interactive algorithm practice workspace with a Python editor and browser-based code execution, complementing One-DSA active-recall drills.',
+    icon: 'Code2',
+    logo: oneDsaLogo,
+    logoChip: true,
+    scope: 'personal',
+    stack: ['React', 'TypeScript', 'Python', 'Pyodide', 'Web Workers'],
+    points: [
+      'Run Python directly in the browser with Pyodide, keeping execution in a worker.',
+      'Published as a dedicated practice app alongside One-DSA, with isolated offline caching.',
+    ],
+    url: 'https://aguzmancruz.com/one-dsa/dsa-mastery/',
+    links: [{ id: 'github', label: 'GitHub', href: 'https://github.com/pigchip/one-dsa' }],
+  },
+  {
     id: 'llmFineTuning',
     title: 'Open-Weight LLM Fine-Tuning & Comparison',
     period: 'July 2026',
